@@ -2,6 +2,7 @@
 /**
  * API service to use to complete the project.
  */
+let currentId = 1;
 
 export class AgentsApi {
   listAgents(): Promise<ReadonlyArray<Agent>> {
@@ -167,7 +168,6 @@ const AGENTS: ReadonlyArray<Agent> = [
   }
 ];
 // == Helper utilities ==
-let currentId = 1;
 /** Returns a new unique ID at every invocation. */
 function nextId() {
   return currentId++;
