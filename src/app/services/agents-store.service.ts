@@ -3,7 +3,7 @@ import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
 import { Agent } from "../interfaces/agent";
 import { AgentsService } from "./agents.service";
 import { Observable } from "rxjs";
-enum LoadingStates {
+export enum LoadingStates {
   Loading = "Loading",
   LoadedSuccessfully = "LoadedSuccessfully",
   LoadError = "LoadError",
@@ -26,8 +26,9 @@ export class AgentsStoreService {
     this.agentsService
       .listAgents()
       .then((agents: Agent[]) => {
+        console.log("hello", agents);
         this.agentsListState.next(LoadingStates.LoadedSuccessfully);
-        this.agentsList.next(agents);
+        this.agentsList.next(agents.filter(agent => agent));
       })
       .catch(error => {
         this.agentsListState.next(LoadingStates.LoadError);
@@ -36,5 +37,9 @@ export class AgentsStoreService {
 
   getAgentsList(): Observable<Agent[]> {
     return this.agentsList.asObservable();
+  }
+
+  getAgentsListState(): Observable<LoadingStates> {
+    return this.agentsListState.asObservable();
   }
 }

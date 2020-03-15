@@ -1,1 +1,8 @@
-<p>home works!</p>
+<p>{{ agentListState$ | async }}</p>
+<p
+  *ngFor="let agent of agentList$ | async"
+  [routerLink]="['/agent/' + agent.id]"
+  routerLinkActive="router-link-active"
+>
+  <ng-container *ngIf="agent"> {{ agent.name }}</ng-container>
+</p>

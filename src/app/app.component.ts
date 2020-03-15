@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AgentsStoreService } from './services/agents-store.service';
+import { AgentsStoreService } from "./services/agents-store.service";
 
 @Component({
   selector: "ai-root",
