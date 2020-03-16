@@ -1,7 +1,10 @@
 <h2>Tasks</h2>
-<p *ngFor="let category of categories | keyvalue">
-  {{ category.key }}:<ai-task
-    [category]="category.value"
-    [smaller]="false"
-  ></ai-task>
-</p>
+<div *ngFor="let category of categories | keyvalue">
+  <p>
+    <b>{{ category.key }}</b> (<ng-container
+      *ngFor="let taskName of category.value.tasks; last as isLast"
+      >{{ taskName }}<span *ngIf="!isLast">, </span></ng-container
+    >):
+  </p>
+  <ai-task [category]="category.value" [smaller]="false"></ai-task>
+</div>

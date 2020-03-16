@@ -21,5 +21,6 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories = this.agentsService.caclulateCategories(this.tasks);
+    console.log(this.categories);
   }
 }

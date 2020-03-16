@@ -29,6 +29,7 @@ export class AgentsService {
       amountOfTasks: number;
       average: number;
       averageToString: string;
+      tasks: string[];
     };
   } {
     const categories: {
@@ -37,6 +38,7 @@ export class AgentsService {
         amountOfTasks: number;
         average: number;
         averageToString: string;
+        tasks: string[];
       };
     } = {};
     tasks.forEach((task: Task) => {
@@ -45,7 +47,8 @@ export class AgentsService {
           totalScore: 0,
           amountOfTasks: 0,
           average: 0,
-          averageToString: ""
+          averageToString: "",
+          tasks: []
         };
       }
       categories[task.category].totalScore =
@@ -58,6 +61,7 @@ export class AgentsService {
       categories[task.category].averageToString = categories[
         task.category
       ].average.toFixed(2);
+      categories[task.category].tasks.push(task.name);
     });
     return categories;
   }
