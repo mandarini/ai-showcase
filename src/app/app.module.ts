@@ -10,10 +10,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+
 import { AgentsApi } from "./api/fake_api_service";
 import { TaskComponent } from "./components/agent-details/task/task.component";
 import { TaskListComponent } from "./components/agent-details/task-list/task-list.component";
 import { AgentComparisonComponent } from "./components/agent-comparison/agent-comparison.component";
+import { DetailsComponent } from "./components/agent-details/details/details.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatFormFieldModule } from "@angular/material/form-field";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,15 +28,20 @@ import { AgentComparisonComponent } from "./components/agent-comparison/agent-co
     AgentSummaryComponent,
     TaskComponent,
     TaskListComponent,
-    AgentComparisonComponent
+    AgentComparisonComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [AgentsApi],
   bootstrap: [AppComponent]

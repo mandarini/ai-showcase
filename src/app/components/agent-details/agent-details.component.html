@@ -7,14 +7,7 @@
     (agent$ | async) as agent
   "
 >
-  <h1>Overview page for: {{ agent.name }}</h1>
-  <h2>
-    Description
-  </h2>
-  <p>
-    {{ agent.description }}
-  </p>
-  <ai-task-list [tasks]="agent.tasks"></ai-task-list>
+  <ai-details [agent]="agent"></ai-details>
 </ng-container>
 <ng-container *ngIf="(agentLoadState$ | async) === 'LoadError'"
   >Error loading agent.

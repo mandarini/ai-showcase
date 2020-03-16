@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Task } from "src/app/interfaces/task";
+import { AgentsService } from "src/app/services/agents.service";
 
 @Component({
   selector: "ai-task-list",
@@ -16,31 +17,9 @@ export class TaskListComponent implements OnInit {
       averageToString: string;
     };
   } = {};
-  constructor() {}
+  constructor(private agentsService: AgentsService) {}
 
   ngOnInit(): void {
-    console.log("hello", this.tasks);
-    this.tasks.forEach((task: Task) => {
-      if (!this.categories[task.category]) {
-        this.categories[task.category] = {
-          totalScore: 0,
-          amountOfTasks: 0,
-          average: 0,
-          averageToString: ""
-        };
-      }
-      console.log(task.category, ": ", this.categories[task.category]);
-      this.categories[task.category].totalScore =
-        this.categories[task.category].totalScore + task.score;
-      this.categories[task.category].amountOfTasks =
-        this.categories[task.category].amountOfTasks + 1;
-      this.categories[task.category].average =
-        this.categories[task.category].totalScore /
-        this.categories[task.category].amountOfTasks;
-      this.categories[task.category].averageToString = this.categories[
-        task.category
-      ].average.toFixed(2);
-    });
-    console.log("result", this.categories);
+    this.categories = this.agentsService.caclulateCategories(this.tasks);
   }
 }

@@ -1,1 +1,47 @@
-<p>agent-comparison works!</p>
+<div class="search">
+  <div class="agent-search">
+    <mat-form-field>
+      <mat-label>Agent one</mat-label>
+      <input
+        [formControl]="agentOneSearch"
+        matInput
+        placeholder="Search for agent one"
+      />
+    </mat-form-field>
+    <ng-container
+      *ngIf="(agentOneSearchResultLoadState$ | async) === 'LoadedSuccessfully'"
+    >
+      <ul *ngFor="let agent of agentOneSearchResult$ | async">
+        <li (click)="agentOne = agent">{{ agent.name }}</li>
+      </ul>
+    </ng-container>
+    <ng-container *ngIf="(agentOneSearchResultLoadState$ | async) === 'Loading'"
+      >Loading
+    </ng-container>
+  </div>
+  <div class="agent-search">
+    <mat-form-field>
+      <mat-label>Agent two</mat-label>
+      <input
+        matInput
+        [formControl]="agentTwoSearch"
+        placeholder="Search for agent two"
+      />
+    </mat-form-field>
+    <ng-container
+      *ngIf="(agentTwoSearchResultLoadState$ | async) === 'LoadedSuccessfully'"
+    >
+      <ul *ngFor="let agent of agentTwoSearchResult$ | async">
+        <li (click)="agentTwo = agent">{{ agent.name }}</li>
+      </ul>
+    </ng-container>
+    <ng-container *ngIf="(agentTwoSearchResultLoadState$ | async) === 'Loading'"
+      >Loading
+    </ng-container>
+  </div>
+</div>
+<div class="grid-container">
+  <div class="category"></div>
+  <div class="agents agent-one"></div>
+  <div class="agents agent-two"></div>
+</div>

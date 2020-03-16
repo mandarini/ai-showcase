@@ -14,7 +14,7 @@ const routes: Routes = [
     component: AgentDetailsComponent
   },
   {
-    path: "compare/:id1/:id2",
+    path: "compare",
     component: AgentComparisonComponent
   },
   { path: "**", redirectTo: "home" },

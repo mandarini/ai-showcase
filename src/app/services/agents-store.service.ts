@@ -17,6 +17,12 @@ export class AgentsStoreService {
   agentsListState: BehaviorSubject<LoadingStates> = new BehaviorSubject<
     LoadingStates
   >(LoadingStates.Inactive);
+  searchAgentsList: {
+    [key: string]: BehaviorSubject<Agent[]>;
+  } = {};
+  searchAgentsListState: {
+    [key: string]: BehaviorSubject<LoadingStates>;
+  } = {};
   agentsInStore: { [key: number]: BehaviorSubject<Agent> } = {};
   agentsInStoreStates: { [key: number]: BehaviorSubject<LoadingStates> } = {};
 
@@ -68,6 +74,45 @@ export class AgentsStoreService {
           this.agentsInStoreStates[id].next(LoadingStates.LoadError);
         });
     }
+  }
+
+  searchAgentsListFunction(column: string, term: string) {
+    console.log("searching", term);
+    if (!this.searchAgentsListState[column]) {
+      this.searchAgentsListState[column] = new BehaviorSubject<LoadingStates>(
+        LoadingStates.Inactive
+      );
+      this.searchAgentsList[column] = new BehaviorSubject({} as Agent[]);
+    }
+    this.searchAgentsListState[column].next(LoadingStates.Loading);
+    this.agentsService
+      .searchAgents(term)
+      .then((result: Agent[]) => {
+        console.log(term);
+        this.searchAgentsList[column].next(result);
+        this.searchAgentsListState[column].next(
+          LoadingStates.LoadedSuccessfully
+        );
+      })
+      .catch(error => {
+        this.searchAgentsListState[column].next(LoadingStates.LoadError);
+      });
+  }
+
+  getSearchAgentList(column: string): Observable<Agent[]> {
+    if (!this.searchAgentsList[column]) {
+      this.searchAgentsList[column] = new BehaviorSubject({} as Agent[]);
+    }
+    return this.searchAgentsList[column].asObservable();
+  }
+
+  getSearchAgentListState(column: string): Observable<LoadingStates> {
+    if (!this.searchAgentsListState[column]) {
+      this.searchAgentsListState[column] = new BehaviorSubject<LoadingStates>(
+        LoadingStates.Inactive
+      );
+    }
+    return this.searchAgentsListState[column].asObservable();
   }
 
   getAgentsList(): Observable<Agent[]> {
