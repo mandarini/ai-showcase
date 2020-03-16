@@ -1,6 +1,7 @@
 <h2>Tasks</h2>
-<ul>
-  <li *ngFor="let category of categories | keyvalue">
-    {{ category.key }}:{{ category.value.averageToString }}
-  </li>
-</ul>
+<p *ngFor="let category of categories | keyvalue">
+  {{ category.key }}:<ai-task
+    [category]="category.value"
+    [smaller]="false"
+  ></ai-task>
+</p>

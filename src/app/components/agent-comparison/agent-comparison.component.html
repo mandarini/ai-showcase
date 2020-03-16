@@ -15,9 +15,9 @@
         <li (click)="agentOne = agent">{{ agent.name }}</li>
       </ul>
     </ng-container>
-    <ng-container *ngIf="(agentOneSearchResultLoadState$ | async) === 'Loading'"
-      >Loading
-    </ng-container>
+    <p *ngIf="(agentOneSearchResultLoadState$ | async) === 'Loading'">
+      Loading
+    </p>
   </div>
   <div class="agent-search">
     <mat-form-field>
@@ -35,9 +35,9 @@
         <li (click)="agentTwo = agent">{{ agent.name }}</li>
       </ul>
     </ng-container>
-    <ng-container *ngIf="(agentTwoSearchResultLoadState$ | async) === 'Loading'"
-      >Loading
-    </ng-container>
+    <p *ngIf="(agentTwoSearchResultLoadState$ | async) === 'Loading'">
+      Loading
+    </p>
   </div>
 </div>
 <ng-container *ngIf="agentOne">

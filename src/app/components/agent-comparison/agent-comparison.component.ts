@@ -57,14 +57,12 @@ export class AgentComparisonComponent implements OnInit {
     this.agentOneSearch.valueChanges
       .pipe(debounceTime(400), distinctUntilChanged())
       .subscribe(term => {
-        console.log(term);
         this.agentsStoreService.searchAgentsListFunction("agentOne", term);
       });
 
     this.agentTwoSearch.valueChanges
       .pipe(debounceTime(400), distinctUntilChanged())
       .subscribe(term => {
-        console.log(term);
         this.agentsStoreService.searchAgentsListFunction("agentTwo", term);
       });
   }

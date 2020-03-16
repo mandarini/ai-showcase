@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Agent } from "src/app/interfaces/agent";
 
 @Component({
@@ -6,9 +6,6 @@ import { Agent } from "src/app/interfaces/agent";
   templateUrl: "./details.component.html",
   styleUrls: ["./details.component.scss"]
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent {
   @Input() agent: Agent;
-  constructor() {}
-
-  ngOnInit(): void {}
 }

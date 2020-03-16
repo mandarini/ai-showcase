@@ -1,14 +1,9 @@
-<ng-container *ngIf="(agentLoadState$ | async) === 'Loading'"
-  >Loading
-</ng-container>
-<ng-container
+<p *ngIf="(agentLoadState$ | async) === 'Loading'">Loading</p>
+<ai-details
   *ngIf="
     (agentLoadState$ | async) === 'LoadedSuccessfully' &&
     (agent$ | async) as agent
   "
->
-  <ai-details [agent]="agent"></ai-details>
-</ng-container>
-<ng-container *ngIf="(agentLoadState$ | async) === 'LoadError'"
-  >Error loading agent.
-</ng-container>
+  [agent]="agent"
+></ai-details>
+<p *ngIf="(agentLoadState$ | async) === 'LoadError'">Error loading agent.</p>
