@@ -77,7 +77,6 @@ export class AgentsStoreService {
   }
 
   searchAgentsListFunction(column: string, term: string) {
-    console.log("searching", term);
     if (!this.searchAgentsListState[column]) {
       this.searchAgentsListState[column] = new BehaviorSubject<LoadingStates>(
         LoadingStates.Inactive
@@ -88,7 +87,6 @@ export class AgentsStoreService {
     this.agentsService
       .searchAgents(term)
       .then((result: Agent[]) => {
-        console.log(term);
         this.searchAgentsList[column].next(result);
         this.searchAgentsListState[column].next(
           LoadingStates.LoadedSuccessfully

@@ -42,24 +42,17 @@ export class AgentComparisonComponent implements OnInit {
     this.agentTwoSearchResult$ = this.agentsStoreService.getSearchAgentList(
       "agentTwo"
     );
-
     this.agentOneSearchResultLoadState$ = this.agentsStoreService.getSearchAgentListState(
       "agentOne"
     );
     this.agentTwoSearchResultLoadState$ = this.agentsStoreService.getSearchAgentListState(
       "agentTwo"
     );
-
-    this.agentOneSearchResult$.subscribe(res => {
-      console.log(res);
-    });
-
     this.agentOneSearch.valueChanges
       .pipe(debounceTime(400), distinctUntilChanged())
       .subscribe(term => {
         this.agentsStoreService.searchAgentsListFunction("agentOne", term);
       });
-
     this.agentTwoSearch.valueChanges
       .pipe(debounceTime(400), distinctUntilChanged())
       .subscribe(term => {
