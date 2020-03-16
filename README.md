@@ -42,4 +42,4 @@ I spent most of my time in the above 3 features, so I decided to keep the UI to 
 - I would write some unit tests to make sure my API returns the right values. My error handling will make sure the UI is not affected gravely, but unit tests should definitely be in place to save the application from unforeseen bugs.
 - I would make the compare page "refreshable", by adding the two comparable agents in the URL
 - I would add a "Compare with..." button on each individual agent page, which would take the user to the `compare` page, with the first agent information prefilled.
-- I would show the names of each task in the categories list of each agent.
+- I would probably code split the comparison page, if I should be thinking about how to keep the application scalable. I can imagine more features being added there, and if it would become too complicated maybe it would be better to lazy load it.
