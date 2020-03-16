@@ -5,7 +5,7 @@
     (agentList$ | async) as agentList
   "
 >
-  <h1>List of all agents</h1>
+  <h1>List of all our AI agents</h1>
   <ai-agent-summary
     *ngFor="let agent of agentList"
     [routerLink]="['/agent/' + agent.id]"
