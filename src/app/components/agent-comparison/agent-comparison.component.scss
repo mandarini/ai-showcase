@@ -3,9 +3,15 @@
   grid-template-columns: 200px 1fr 1fr;
   grid-template-rows: 100px;
   grid-template-areas: "category agentOne agentTwo";
+  border: 1px solid #cecece;
 
-  .categories {
+  .agents {
+    border-right: 1px solid #cecece;
+  }
+
+  .category {
     grid-area: category;
+    border-right: 1px solid #cecece;
   }
   .agent-one {
     grid-area: agentOne;
@@ -14,4 +20,10 @@
   .agent-two {
     grid-area: agentTwo;
   }
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

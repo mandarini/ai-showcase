@@ -40,8 +40,26 @@
     </ng-container>
   </div>
 </div>
-<div class="grid-container">
-  <div class="category"></div>
-  <div class="agents agent-one"></div>
-  <div class="agents agent-two"></div>
-</div>
+<ng-container *ngIf="agentOne">
+  <div class="grid-container">
+    <div class="category"></div>
+    <div class="agents">{{ agentOne.name }}</div>
+    <div class="agents">{{ agentTwo ? agentTwo.name : "" }}</div>
+  </div>
+  <div
+    *ngFor="let category of getCategories(agentOne.tasks) | keyvalue"
+    class="grid-container"
+  >
+    <div class="category">{{ category.key }}</div>
+    <div class="agents agent-one">{{ category.value.averageToString }}</div>
+    <div class="agents agent-two">
+      {{
+        agentTwo &&
+        getCategories(agentTwo.tasks) &&
+        getCategories(agentTwo.tasks)[category.key]
+          ? getCategories(agentTwo.tasks)[category.key].averageToString
+          : null
+      }}
+    </div>
+  </div>
+</ng-container>
