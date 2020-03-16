@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./components/home/home.component";
 import { AgentDetailsComponent } from "./components/agent-details/agent-details.component";
-import { AgendComparisonComponent } from "./components/agend-comparison/agend-comparison.component";
+import { AgentComparisonComponent } from "./components/agent-comparison/agent-comparison.component";
 
 const routes: Routes = [
   {
@@ -14,8 +14,8 @@ const routes: Routes = [
     component: AgentDetailsComponent
   },
   {
-    path: "compare/:id1..:id2",
-    component: AgendComparisonComponent
+    path: "compare/:id1/:id2",
+    component: AgentComparisonComponent
   },
   { path: "**", redirectTo: "home" },
   {

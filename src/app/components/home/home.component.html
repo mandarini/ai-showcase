@@ -1,7 +1,19 @@
-<p>{{ agentListState$ | async }}</p>
-<ai-agent-summary
-  *ngFor="let agent of agentList$ | async"
-  [routerLink]="['/agent/' + agent.id]"
-  routerLinkActive="router-link-active"
-  [agent]="agent"
-></ai-agent-summary>
+<ng-container *ngIf="(agentListState$ | async) === 'Loading'"
+  >Loading
+</ng-container>
+<ng-container
+  *ngIf="
+    (agentListState$ | async) === 'LoadedSuccessfully' &&
+    (agentList$ | async) as agentList
+  "
+>
+  <ai-agent-summary
+    *ngFor="let agent of agentList"
+    [routerLink]="['/agent/' + agent.id]"
+    routerLinkActive="router-link-active"
+    [agent]="agent"
+  ></ai-agent-summary>
+</ng-container>
+<ng-container *ngIf="(agentListState$ | async) === 'LoadError'"
+  >Error loading list
+</ng-container>

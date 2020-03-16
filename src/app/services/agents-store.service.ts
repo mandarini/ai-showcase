@@ -13,16 +13,12 @@ export enum LoadingStates {
   providedIn: "root"
 })
 export class AgentsStoreService {
+  agentsList: BehaviorSubject<Agent[]> = new BehaviorSubject([]);
   agentsListState: BehaviorSubject<LoadingStates> = new BehaviorSubject<
     LoadingStates
   >(LoadingStates.Inactive);
-
-  agentsList: BehaviorSubject<Agent[]> = new BehaviorSubject([]);
-  agentsInStore: { [key: number]: BehaviorSubject<Agent> };
-  oneAgent: BehaviorSubject<Agent> = new BehaviorSubject({} as Agent);
-  oneAgentState: BehaviorSubject<LoadingStates> = new BehaviorSubject<
-    LoadingStates
-  >(LoadingStates.Inactive);
+  agentsInStore: { [key: number]: BehaviorSubject<Agent> } = {};
+  agentsInStoreStates: { [key: number]: BehaviorSubject<LoadingStates> } = {};
 
   constructor(private agentsService: AgentsService) {}
 
@@ -31,7 +27,6 @@ export class AgentsStoreService {
     this.agentsService
       .listAgents()
       .then((agents: Agent[]) => {
-        console.log("hello", agents);
         this.agentsListState.next(LoadingStates.LoadedSuccessfully);
         this.agentsList.next(agents.filter(agent => agent));
       })
@@ -40,32 +35,39 @@ export class AgentsStoreService {
       });
   }
 
-  getAgent(id: AgentId): Observable<Agent | undefined> {
-    if (this.agentsInStore[id]) {
-      return this.agentsInStore[id].asObservable();
-    } else {
+  getAgent(id: AgentId): Observable<Agent> {
+    if (!this.agentsInStore[id]) {
       this.fetchAgent(id);
     }
+    return this.agentsInStore[id].asObservable();
+  }
+
+  getAgentState(id: AgentId): Observable<LoadingStates> {
+    if (!this.agentsInStoreStates[id]) {
+      this.fetchAgent(id);
+    }
+    return this.agentsInStoreStates[id].asObservable();
   }
 
   fetchAgent(id: AgentId): void {
     if (!this.agentsInStore[id]) {
-      this.oneAgentState.next(LoadingStates.Loading);
+      this.agentsInStoreStates[id] = new BehaviorSubject<LoadingStates>(
+        LoadingStates.Loading
+      );
+      this.agentsInStoreStates[id].next(LoadingStates.Loading);
       this.agentsInStore[id] = new BehaviorSubject({} as Agent);
       this.agentsService
         .getAgent(id)
         .then((agent: Agent) => {
-          this.oneAgentState.next(LoadingStates.LoadedSuccessfully);
+          console.log(agent);
+          this.agentsInStoreStates[id].next(LoadingStates.LoadedSuccessfully);
           this.agentsInStore[id].next(agent);
         })
         .catch(error => {
-          this.oneAgentState.next(LoadingStates.LoadError);
+          console.log(error);
+          this.agentsInStoreStates[id].next(LoadingStates.LoadError);
         });
     }
-  }
-
-  getAgentState(): Observable<LoadingStates> {
-    return this.oneAgentState.asObservable();
   }
 
   getAgentsList(): Observable<Agent[]> {

@@ -14,7 +14,9 @@ export class AgentsApi {
     );
   }
   getAgent(id: AgentId): Promise<Agent | undefined> {
-    return asFallibleAsyncResponse(AGENTS.find(agent => agent.id === id));
+    return asFallibleAsyncResponse(
+      AGENTS.find(agent => agent && agent.id === id)
+    );
   }
 }
 // == Fake API Data ==

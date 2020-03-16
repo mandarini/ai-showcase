@@ -1,1 +1,21 @@
-<p>agent-details works!</p>
+<ng-container *ngIf="(agentLoadState$ | async) === 'Loading'"
+  >Loading
+</ng-container>
+<ng-container
+  *ngIf="
+    (agentLoadState$ | async) === 'LoadedSuccessfully' &&
+    (agent$ | async) as agent
+  "
+>
+  <h1>Overview page for: {{ agent.name }}</h1>
+  <h2>
+    Description
+  </h2>
+  <p>
+    {{ agent.description }}
+  </p>
+  <ai-task-list [tasks]="agent.tasks"></ai-task-list>
+</ng-container>
+<ng-container *ngIf="(agentLoadState$ | async) === 'LoadError'"
+  >Error loading agent.
+</ng-container>

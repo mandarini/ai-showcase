@@ -22,8 +22,10 @@ export class AgentDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.agent$ = this.agentsStoreService.getAgent(
-      this.activatedRoute.snapshot.params["id"]
+      parseInt(this.activatedRoute.snapshot.params["id"], 10)
     );
-    this.agentLoadState$ = this.agentsStoreService.getAgentState();
+    this.agentLoadState$ = this.agentsStoreService.getAgentState(
+      parseInt(this.activatedRoute.snapshot.params["id"], 10)
+    );
   }
 }
