@@ -81,7 +81,7 @@ export class AgentsStoreService {
       this.searchAgentsListState[column] = new BehaviorSubject<LoadingStates>(
         LoadingStates.Inactive
       );
-      this.searchAgentsList[column] = new BehaviorSubject({} as Agent[]);
+      this.searchAgentsList[column] = new BehaviorSubject([]);
     }
     this.searchAgentsListState[column].next(LoadingStates.Loading);
     this.agentsService
@@ -99,7 +99,7 @@ export class AgentsStoreService {
 
   getSearchAgentList(column: string): Observable<Agent[]> {
     if (!this.searchAgentsList[column]) {
-      this.searchAgentsList[column] = new BehaviorSubject({} as Agent[]);
+      this.searchAgentsList[column] = new BehaviorSubject([]);
     }
     return this.searchAgentsList[column].asObservable();
   }

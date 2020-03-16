@@ -11,4 +11,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.agentsStoreService.fetchAgentsList();
   }
+
+  goToURL(url: string) {
+    window.location.href = url;
+  }
 }

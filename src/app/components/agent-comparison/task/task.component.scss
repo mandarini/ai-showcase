@@ -1,6 +1,6 @@
 .parent {
   position: relative;
-  width: 80%;
+  width: 85%;
   background-color: #cccccc;
   height: 50px;
   .child {
@@ -11,7 +11,7 @@
     background-color: green;
   }
   .child.smaller {
-    background-color: purple;
+    background-color: red;
   }
   span {
     position: absolute;

@@ -18,3 +18,33 @@ mat-toolbar {
 .content {
   padding: 0 16px;
 }
+
+.social-links {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  .github-link {
+    cursor: pointer;
+    background-color: hotpink;
+    color: white;
+    padding: 8px;
+  }
+
+  .github-link:hover {
+    background-color: white;
+    color: hotpink;
+  }
+
+  .psybercity {
+    cursor: pointer;
+    height: 30px;
+    margin-right: 16px;
+    img {
+      height: 30px;
+    }
+  }
+}

@@ -36,6 +36,7 @@ export class AgentComparisonComponent implements OnInit {
   ngOnInit(): void {
     this.agentOneSearch = new FormControl();
     this.agentTwoSearch = new FormControl();
+
     this.agentOneSearchResult$ = this.agentsStoreService.getSearchAgentList(
       "agentOne"
     );
