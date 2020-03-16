@@ -1,0 +1,22 @@
+.parent {
+  position: relative;
+  width: 80%;
+  background-color: #cccccc;
+  height: 50px;
+  .child {
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: green;
+  }
+  .child.smaller {
+    background-color: purple;
+  }
+  span {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    color: white;
+  }
+}

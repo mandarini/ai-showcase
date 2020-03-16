@@ -13,7 +13,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 
 import { AgentsApi } from "./api/fake_api_service";
-import { TaskComponent } from "./components/agent-details/task/task.component";
+import { TaskComponent } from "./components/agent-comparison/task/task.component";
 import { TaskListComponent } from "./components/agent-details/task-list/task-list.component";
 import { AgentComparisonComponent } from "./components/agent-comparison/agent-comparison.component";
 import { DetailsComponent } from "./components/agent-details/details/details.component";

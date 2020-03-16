@@ -51,15 +51,43 @@
     class="grid-container"
   >
     <div class="category">{{ category.key }}</div>
-    <div class="agents agent-one">{{ category.value.averageToString }}</div>
+    <div class="agents agent-one">
+      <ai-task
+        [category]="category.value"
+        [smaller]="
+          agentOne &&
+          agentTwo &&
+          category.value &&
+          category.value.average &&
+          getCategories(agentTwo.tasks) &&
+          getCategories(agentTwo.tasks)[category.key] &&
+          getCategories(agentTwo.tasks)[category.key].average &&
+          getCategories(agentTwo.tasks)[category.key].average >
+            category.value.average
+        "
+      ></ai-task>
+    </div>
     <div class="agents agent-two">
-      {{
-        agentTwo &&
-        getCategories(agentTwo.tasks) &&
-        getCategories(agentTwo.tasks)[category.key]
-          ? getCategories(agentTwo.tasks)[category.key].averageToString
-          : null
-      }}
+      <ai-task
+        [category]="
+          agentTwo &&
+          getCategories(agentTwo.tasks) &&
+          getCategories(agentTwo.tasks)[category.key]
+            ? getCategories(agentTwo.tasks)[category.key]
+            : null
+        "
+        [smaller]="
+          agentOne &&
+          agentTwo &&
+          category.value &&
+          category.value.average &&
+          getCategories(agentTwo.tasks) &&
+          getCategories(agentTwo.tasks)[category.key] &&
+          getCategories(agentTwo.tasks)[category.key].average &&
+          getCategories(agentTwo.tasks)[category.key].average <
+            category.value.average
+        "
+      ></ai-task>
     </div>
   </div>
 </ng-container>

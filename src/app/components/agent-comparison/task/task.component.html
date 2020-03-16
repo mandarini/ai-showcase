@@ -1,0 +1,10 @@
+<div class="parent">
+  <ng-container *ngIf="category">
+    <div
+      class="child"
+      [ngStyle]="{ width: category.average + '%' }"
+      [ngClass]="{ smaller: smaller }"
+    ></div>
+  </ng-container>
+  <span>{{ category && category.averageToString }}</span>
+</div>
