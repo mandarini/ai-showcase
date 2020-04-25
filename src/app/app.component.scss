@@ -1,17 +1,52 @@
+$deepmind-color: #0053d6;
 
-mat-toolbar {
-  font-family: "Deepmind Sans";
-  mat-toolbar-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    span {
-      cursor: pointer;
-    }
-    nav {
-      mat-icon {
-        padding: 0 14px;
+mat-sidenav-container {
+  height: 100vh;
+
+  mat-sidenav {
+    color: white;
+    background: $deepmind-color;
+
+    .sidenav-links {
+      padding: 30px 20px;
+      height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      .top-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        span {
+          font-family: "Deepmind Sans";
+          cursor: pointer;
+          font-size: 40px;
+        }
+        nav {
+          margin-top: 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          mat-icon {
+            font-size: 30px;
+            height: 30px;
+            padding: 0 14px;
+            margin-bottom: 24px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .psybercity {
         cursor: pointer;
+        height: 30px;
+        img {
+          height: 30px;
+        }
       }
     }
   }
@@ -22,6 +57,7 @@ mat-toolbar {
 }
 
 .social-links {
+  z-index: 3;
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -40,14 +76,5 @@ mat-toolbar {
   .github-link:hover {
     background-color: white;
     color: hotpink;
-  }
-
-  .psybercity {
-    cursor: pointer;
-    height: 30px;
-    margin-right: 16px;
-    img {
-      height: 30px;
-    }
   }
 }
