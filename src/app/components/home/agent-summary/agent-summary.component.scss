@@ -1,0 +1,13 @@
+.agent {
+  height: 48px;
+  background-color: #ffe6f0;
+  margin-right: 16px;
+  padding: 4px 8px;
+  color: #0053d6;
+  cursor: pointer;
+  font-size: larger;
+}
+
+.agent:hover {
+  transform: translateY(-8px);
+}

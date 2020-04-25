@@ -6,11 +6,13 @@
   "
 >
   <h1>List of all our AI agents</h1>
-  <ai-agent-summary
-    *ngFor="let agent of agentList"
-    [routerLink]="['/agent/' + agent.id]"
-    routerLinkActive="router-link-active"
-    [agent]="agent"
-  ></ai-agent-summary>
+  <div class="agent-container">
+    <ai-agent-summary
+      *ngFor="let agent of agentList"
+      [routerLink]="['/agent/' + agent.id]"
+      routerLinkActive="router-link-active"
+      [agent]="agent"
+    ></ai-agent-summary>
+  </div>
 </div>
 <p *ngIf="(agentListState$ | async) === 'LoadError'">Error loading list</p>
