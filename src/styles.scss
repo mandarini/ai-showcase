@@ -117,6 +117,8 @@
   font-style: italic;
 }
 
+$deepmind-color: #0053d6;
+
 html,
 body {
   height: 100%;
@@ -124,6 +126,7 @@ body {
 body {
   margin: 0;
   font-family: "Deepmind Serif", "Helvetica Neue", sans-serif;
+  background-color: #f0f5f5;
 }
 
 ul,
@@ -144,4 +147,8 @@ li:hover {
 
 p {
   font-family: "Deepmind Sans";
+}
+
+.mat-toolbar.mat-primary {
+  background: $deepmind-color;
 }
