@@ -1,4 +1,121 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Deepmind Serif";
+  src: url("./assets/fonts/DMSerifDisplay-Regular.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/DMSerifDisplay-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/DMSerifDisplay-Regular.woff")
+      format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/DMSerifDisplay-Regular.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Deepmind Serif";
+  src: url("./assets/fonts/DMSerifDisplay-Italic.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/DMSerifDisplay-Italic.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/DMSerifDisplay-Italic.woff")
+      format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/DMSerifDisplay-Italic.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Deepmind Serif Text";
+  src: url("./assets/fonts/DMSerifText-Regular.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/DMSerifText-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/DMSerifText-Regular.woff") format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/DMSerifText-Regular.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Deepmind Serif Text";
+  src: url("./assets/fonts/DMSerifText-Italic.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/DMSerifText-Italic.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/DMSerifText-Italic.woff") format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/DMSerifText-Italic.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Deepmind Sans";
+  src: url("./assets/fonts/DMSans-Regular.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/DMSans-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/DMSans-Regular.woff") format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/DMSans-Regular.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Deepmind Sans";
+  src: url("./assets/fonts/DMSans-Medium.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/DMSans-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/DMSans-Medium.woff") format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/DMSans-Medium.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Deepmind Sans";
+  src: url("./assets/fonts/DMSans-Bold.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/DMSans-Bold.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/DMSans-Bold.woff") format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/DMSans-Bold.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Deepmind Sans";
+  src: url("./assets/fonts/DMSans-Italic.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/DMSans-Italic.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/DMSans-Italic.woff") format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/DMSans-Italic.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Deepmind Sans";
+  src: url("./assets/fonts/DMSans-MediumItalic.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/DMSans-MediumItalic.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/DMSans-MediumItalic.woff") format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/DMSans-MediumItalic.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Deepmind Sans";
+  src: url("./assets/fonts/DMSans-BoldItalic.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/DMSans-BoldItalic.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/DMSans-BoldItalic.woff") format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/DMSans-BoldItalic.woff2")
+      format("woff2"); /* Modern Browsers */
+  font-weight: 800;
+  font-style: italic;
+}
 
 html,
 body {
@@ -6,7 +123,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Deepmind Serif", "Helvetica Neue", sans-serif;
 }
 
 ul,
@@ -17,9 +134,14 @@ li {
 }
 
 li {
+  font-family: "Deepmind Sans";
   padding: 8px 0 8px 4px;
 }
 
 li:hover {
   background-color: #dedede;
+}
+
+p {
+  font-family: "Deepmind Sans";
 }

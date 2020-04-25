@@ -1,4 +1,5 @@
 mat-toolbar {
+  font-family: "Deepmind Sans";
   mat-toolbar-row {
     display: flex;
     justify-content: space-between;
@@ -28,6 +29,7 @@ mat-toolbar {
   align-items: center;
   justify-content: center;
   .github-link {
+    font-family: "Deepmind Sans";
     cursor: pointer;
     background-color: hotpink;
     color: white;
