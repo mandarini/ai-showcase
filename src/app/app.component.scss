@@ -96,12 +96,19 @@ mat-sidenav-container {
 
   .cube div:nth-child(1) {
     transform: translateZ(25px);
-    background: #237a57b4;
+    background: #b929ff94;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .cube div:nth-child(2) {
     transform: rotateX(180deg) translateZ(25px);
     background: #0059a793;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
   }
 
   .cube div:nth-child(3) {
